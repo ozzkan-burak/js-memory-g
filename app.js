@@ -67,12 +67,14 @@ const cardArray = [
 
 cardArray.sort(() => 0.5 - Math.random());
 
-const gridDisplay = document.getElementById('#grid');
+const gridDisplay = document.getElementById('grid');
 
 function createBoard () {
-  for(let i = 0 ; i < 10; i++){
+  for(let i = 0 ; i < cardArray.length; i++){
     const card = document.createElement('img');
-    console.log(card, i);
+    card.setAttribute('src', 'images/blank.png');
+    card.setAttribute('daata-id',i)
+    gridDisplay.appendChild(card)
   }
 };
 
