@@ -73,9 +73,14 @@ function createBoard () {
   for(let i = 0 ; i < cardArray.length; i++){
     const card = document.createElement('img');
     card.setAttribute('src', 'images/blank.png');
-    card.setAttribute('daata-id',i)
+    card.setAttribute('daata-id',i);
+    card.addEventListener('click', flipCard)
     gridDisplay.appendChild(card)
   }
 };
 
-createBoard()
+createBoard();
+
+function flipCard() {
+  console.log('clicked')
+}
