@@ -66,6 +66,7 @@ const cardArray = [
 ]
 
 cardArray.sort(() => 0.5 - Math.random());
+const cardChosen = []
 
 const gridDisplay = document.getElementById('grid');
 
@@ -73,7 +74,7 @@ function createBoard () {
   for(let i = 0 ; i < cardArray.length; i++){
     const card = document.createElement('img');
     card.setAttribute('src', 'images/blank.png');
-    card.setAttribute('daata-id',i);
+    card.setAttribute('data-id',i);
     card.addEventListener('click', flipCard)
     gridDisplay.appendChild(card)
   }
@@ -81,6 +82,16 @@ function createBoard () {
 
 createBoard();
 
+function checkMatch(){
+  console.log('matched');
+}
+
 function flipCard() {
-  console.log('clicked')
+  const cardId = this.getAttribute('data-id');
+  cardChosen.push(cardArray[cardId].name)
+  console.log(cardChosen)
+  this.setAttribute('src', cardArray[cardId].img);
+  if(cardChosen.length == 2){
+    setTimeout(checkMatch, 500);
+  };
 }
